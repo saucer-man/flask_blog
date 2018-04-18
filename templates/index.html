@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}
+首页
+{% endblock %}
+{% block main_body %}
+
+            <div class="main_body">
+             {% for article in articles %}
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h1 class="vc-page-title"><a href="{{ url_for('article',id=article.id) }}">{{ article.title }}</a></h1>
+                        <p class="vc-author-info">
+                            <time>{{ article.create_time }}</time> &bull; <span><a href="{{ url_for('about') }}">xiaogeng</a></span>
+                        </p>
+                        <p class="hidden-xs">{{ article.content[:100]|striptags }}</p>
+                        <p class="clearfix">
+                            <a class="hidden-xs pull-right vc-more-link" href="{{ url_for('article',id=article.id) }}" role="button">继续阅读 &raquo;</a>
+                            <span class="vc-tags">
+                                <a href="">{{ article.tag.tagname }}</a>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+             {% endfor %}
+                <nav>
+                {% import "_macros.html" as macros %}
+                    <div class="pagination">
+                        {{ macros.pagination_widget(pagination,'.index') }}
+                    </div>
+                </nav>
+            </div>
+{% endblock %}

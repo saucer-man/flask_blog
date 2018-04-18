@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}
+登陆
+{% endblock %}
+{% block main_body %}
+ <!-- CODE START -->
+                <div class="panel panel-default">
+                    <article class="vc-blog">
+                        <h3 align="center">登录</h3>
+                        <form action="" method="post">
+                            <div class="form-container">
+
+                                <div class="form-group">
+                                    <input type="text" name="name" placeholder="姓名" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="password" placeholder="密码" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary btn-block">立即登录</button>
+                                </div>
+                            </div>
+                        </form>
+            {% for message in get_flashed_messages() %}
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message }}
+            {% endfor %}
+                    </article>
+
+                </div>
+
+
+{% endblock %}

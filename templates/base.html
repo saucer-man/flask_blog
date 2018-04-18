@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html lang="zh_CN">
+
+<head>
+{#    <meta charset="utf-8">#}
+{#    <meta name="renderer" content="webkit|ie-comp|ie-stand">#}
+{#    <meta http-equiv="X-UA-Compatible" content="IE=edge" />#}
+{#    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />#}
+{#    <meta name="keywords" content="bootstrap主题,Wordpress主题,vicchen的博客">#}
+{#    <meta name="description" content="这是一个基于bootstrap框架的Wordpress主题，是一款私有主题，个人偏好简洁，萌发开发理念，如果您不小心使用了该主题，请注明版权，禁止商业行为。">#}
+{#    <link rel="Bookmark" href="favicon.ico">#}
+{#    <link rel="Shortcut Icon" href="favicon.ico" />#}
+    <link href="{{ url_for('static',filename='css/bootstrap.min.css' )}}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static',filename='css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static',filename='css/rewrite-bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='css/style.css') }}" rel="stylesheet" type="text/css" />
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/html5.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/respond.min.js') }}"></script>
+    <![endif]-->
+    <script type="text/javascript" src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/base.js') }}"></script>
+    <script src="http://cdn.bootcss.com/holder/2.6.0/holder.min.js"></script>
+    <title>{% block title %}{% endblock %}</title>
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+    <header class="vc-header">
+        <nav class="navbar navbar-default" data-spy="affix" data-offset-top="80">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{{ url_for('index') }}">
+                        <h4>xiaogeng.top</h4>
+                    </a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="vmenu">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="index.html">首页 <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li><a href="#">分类</a>
+                        </li>
+                        <li><a href="{{ url_for('about') }}">关于</a>
+                        </li>
+                        {% if user %}
+                        <li><a href="{{ url_for('publish') }}">发表</a></li>
+                        {% else %}
+                        <li><a href="{{ url_for('login') }}">登陆</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container vc-container">
+        <div class="row">
+            <div class="col-sm-12 col-md-9">
+            {% block main_body %}{% endblock %}
+            </div>
+            <div class="visible-lg visible-md col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form role="search" action="{{ url_for('search') }}" >
+                            <div class="form-group">
+                                <input type="text" name="q" class="form-control" placeholder="善于搜索...">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <h4 class="vc-widget-title">主题声明</h4>
+                    <div class="panel-body">
+                        <p style="text-indent:2rem;word-break:break-all;">
+                            这是一个基于bootstrap框架的主题，是一款私有主题，可能应用在Wordpress、drupal上，个人偏好简洁，萌发开发想法，如果您不小心使用了该主题，请注明版权，禁止商业行为。
+                        </p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <h4 class="vc-widget-title">最近更新</h4>
+                    <div class="panel-body">
+                        <ul class="list-unstyled">
+                            <li><a href="">胡同里的小太子...</a>
+                            </li>
+                            <li><a href="">重游潘家园，会老友...</a>
+                            </li>
+                            <li class="text-right"><a href="#!">更多 >></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <h4 class="vc-widget-title">友情链接</h4>
+                    <div class="panel-body">
+                        <div class="row text-center">
+                            <a href="http://www.itlipeng.cn" class="col-md-6 vc-a">IT蜗牛</a>
+                            <a href="#!" class="col-md-6 vc-a">VicTheme</a>
+                            <a href="#!" class="col-md-6 vc-a">岁寒的博客</a>
+                            <a href="#!" class="col-md-6 vc-a">前端鹏红</a>
+                            <a href="#!" class="col-md-6 vc-a">石头记</a>
+                            <a href="#!" class="col-md-6 vc-a">艳军博客</a>
+                            <a href="#!" class="col-md-6 vc-a">申请友链</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="vc-footer">
+        <div class="vc-footer-copyright">
+            <div> xiaogeng.top Copyright © 2017
+            </div>
+            Powered by <a class="vc-a" href="{{ url_for('about') }}">xiaogeng</a>
+        </div>
+    </footer>
+</body>
+
+</html>

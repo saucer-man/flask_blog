@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}
+撰写
+{% endblock %}
+
+{% block main_body %}
+ <!-- CODE START -->
+    <div class="panel panel-default">
+        <div class="well well-sm text-center">
+            撰写文章
+        </div>
+        <article class="vc-blog">
+            <form method="post">
+                <div class="form-group">
+                    <input type="text" name="title" placeholder="请输入标题" class="form-control">
+                </div>
+                <div class="form-group">
+                    <textarea name="content" placeholder="请输入内容" id="" class="form-control" rows="50"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="tagname" placeholder="请输入标签" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="id" placeholder="固定链接" class="form-control">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block">立即发布</button>
+                </div>
+            </form>
+{#            <form method="post">#}
+{#                <div class="form-group">#}
+{#                    {{ form.title(placeholder="请输入标题",class="form-control") }}#}
+{#                </div>#}
+{#                <div class="form-group">#}
+{#                    {{ form.content(placeholder="请输入内容" ,class="form-control" , rows="50") }}#}
+{#                </div>#}
+{#                <div class="form-group">#}
+{#                {{ form.tagname(placeholder="请输入标签", class="form-control") }}#}
+{#                </div>#}
+{#                <div class="form-group">#}
+{#                    <button class="btn btn-primary btn-block">立即发布</button>#}
+{#                </div>#}
+{#            </form>#}
+        </article>
+    </div>
+{% endblock %}
